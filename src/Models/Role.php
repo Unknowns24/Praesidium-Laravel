@@ -20,7 +20,7 @@ class Role extends Model
 
     public function users() : BelongsToMany
     {
-        return $this->belongsToMany('App\User')->withTimestamps();
+        return $this->belongsToMany('App\Models\User')->withTimestamps();
     }
 
     public function permissions() : BelongsToMany 
