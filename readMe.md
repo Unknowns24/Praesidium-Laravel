@@ -1,8 +1,8 @@
-# Praesidium
+# Praesidium 🔐
 
 _Este es un paquete de roles y permisos diseñado para laravel 8_
 
-## Requerimientos
+### Requerimientos
 
  - Composer
  - PHP 7.3 o superior
