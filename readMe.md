@@ -30,27 +30,27 @@ _Con esto le indicamos a composer que esa sera la direccion donde se tendra que 
 
 _Despues de hacer esto, podremos realizar los siguientes pasos para la instalacion sin problemas._
 
-* **1 - Instalar Paquete** 
+1. **Instalar Paquete** 
 ``` 
 composer requirev unk/praesidium 
 ```
 
-* **2 - Publicar el archivo de configuraciones**
+2. **Publicar el archivo de configuraciones**
 ``` 
 php artisan vendor:publish --tag=config 
 ```
 
-* **3 - Publicar el archivo de Migraciones**
+3. **Publicar el archivo de Migraciones**
 ``` 
 php artisan vendor:publish --tag=migrations 
 ```
 
-* **4 - Subir las migraciones a la base de datos**
+4. **Subir las migraciones a la base de datos**
 ``` 
 php artisan migrate 
 ```
 
-* **5 - Extender las funciones necesarias en el modelo User** \n
+5. **Extender las funciones necesarias en el modelo User**  
 _Para esto tendremos que añadir dos cosas al modelo User que en la version 8 de laravel se encuentra en App\Models\User_
 ```php
 namespace App\Models;
@@ -79,7 +79,7 @@ class User extends Authenticatable
 }
 ```
 
-* **6 - Subir la seed a la base de datos** 
+6. **Subir la seed a la base de datos** 
 ``` 
 php artisan db:seed --class=UNK\\Praesidium\\Database\\Seeders\\PraesidiumSeeder 
 ```
