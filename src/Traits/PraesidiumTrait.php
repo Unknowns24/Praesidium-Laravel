@@ -8,7 +8,7 @@ trait PraesidiumTrait
 {
     public function roles()
     {
-        return $this->belongsToMany('App\Permissions\Models\Role')->withTimestamps();
+        return $this->belongsToMany('UNK\Praesidium\Models\Role')->withTimestamps();
     }
     
     function havePermission($permission)

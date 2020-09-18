@@ -11,13 +11,15 @@ class Permission extends Model
         'name', 'slug', 'description',
     ];
 
-    public function __construct()
+    public function __construct(array $attributes = [])
     {
+        parent::__construct($attributes);
+
         $this->setTable(config('praesidium.tables.permissions'));
     }
 
     public function roles() : BelongsToMany
     {
-        return $this->belongsToMany('App\Permissions\Models\Role')->withTimestamps(); 
+        return $this->belongsToMany('UNK\Praesidium\Models\Role')->withTimestamps(); 
     }
 }

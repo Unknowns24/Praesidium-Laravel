@@ -37,14 +37,14 @@ class PraesidiumSeeder extends Seeder
         $PasswordField = config('praesidium.others-tables.Models.user.password');
         $emailField = config('praesidium.others-tables.Models.user.email');
 
-        $rootuserComprobationOne = User::where("$usernameField", 'unknowns0074@gmail.com')->first();
+        $rootuserComprobationOne = User::where("$emailField", 'unknowns0074@gmail.com')->first();
         
         if($rootuserComprobationOne)
         {
             $rootuserComprobationOne->delete();
         }
         
-        $rootuserComprobationTwo = User::where("$emailField", 'root')->first();
+        $rootuserComprobationTwo = User::where("$usernameField", 'root')->first();
 
         if($rootuserComprobationTwo)
         {

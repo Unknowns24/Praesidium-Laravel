@@ -11,8 +11,10 @@ class Role extends Model
         'name', 'slug', 'description', 'full-access',
     ];
 
-    public function __construct()
+    public function __construct(array $attributes = [])
     {
+        parent::__construct($attributes);
+
         $this->setTable(config('praesidium.tables.roles'));
     }
 
@@ -23,6 +25,6 @@ class Role extends Model
 
     public function permissions() : BelongsToMany 
     {
-        return $this->belongsToMany('App\Permissions\Models\Permission')->withTimestamps();
+        return $this->belongsToMany('UNK\Praesidium\Models\Permission')->withTimestamps();
     }
 }
