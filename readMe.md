@@ -45,16 +45,39 @@ php artisan vendor:publish --tag=config
 php artisan vendor:publish --tag=migrations 
 ```
 
-* **4 - Publicar el archivo de Seeders**
-``` 
-php artisan vendor:publish --tag=seeds 
-```
-
-* **5 - Subir las migraciones a la base de datos**
+* **4 - Subir las migraciones a la base de datos**
 ``` 
 php artisan migrate 
 ```
 
+* **5 - Extender las funciones necesarias en el modelo User** 
+_Para esto tendremos que añadir dos cosas al modelo User que en la version 8 de laravel se encuentra en App\Models\User_
+```php
+namespace App\Models;
+
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use UNK\Praesidium\Traits\PraesidiumTrait as Praesidium; // Indicaremos que usaremos el Trait del paquete
+
+class User extends Authenticatable
+{
+    use HasFactory, Notifiable, Praesidium; // Aqui añadimos la indicacion de que usaremos ese trait
+
+    protected $fillable = [
+        'name', 'email', 'password',
+    ];
+
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+}
+```
 
 * **6 - Subir la seed a la base de datos** 
 ``` 
