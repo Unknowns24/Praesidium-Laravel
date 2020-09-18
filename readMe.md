@@ -9,11 +9,30 @@ _Este es un paquete de roles y permisos diseñado para laravel 8_
  - Laravel 8.0.0 o superior
  - .env con base de datos configurada en tu aplicacion
 
-### Instalacion
+## Instalacion
+
+_Antes de nada para poder comenzar con la instalacion se debe agregar el siguiente codigo al archivo "composer.json" del projecto donde se quiere instalar esta libreria para laravel 8_
+
+```json
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/Unknowns24/Praesidium-Laravel.git"
+    }
+]
+```
+
+_Con esto le indicamos a composer que esa sera la direccion donde se tendra que descargar el paquete que solicitaremos mas tarde. Ahora vamos a tener que agragar al apartado "require" del mismo archivo el siguiente fragmento de codigo_
+
+```json
+"unk/praesidium": "dev-master"
+```
+
+_Despues de hacer esto, podremos realizar los siguientes pasos para la instalacion sin problemas._
 
 * **1 - Instalar Paquete** 
 ``` 
-composer requier unk/praesidium 
+composer requirev unk/praesidium 
 ```
 
 * **2 - Publicar el archivo de configuraciones**
@@ -42,6 +61,7 @@ php artisan migrate
 php artisan db:seed --class=UNK\\Praesidium\\Database\\Seeders\\PraesidiumSeeder 
 ```
 
+##
 
 ### Autor
 
