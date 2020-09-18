@@ -34,7 +34,7 @@ _Despues de hacer esto, podremos realizar los siguientes pasos para la instalaci
 
 1. **Instalar Paquete** 
 ``` 
-composer requirev unk/praesidium 
+composer require unk/praesidium 
 ```
 
 2. **Publicar el archivo de configuraciones**
