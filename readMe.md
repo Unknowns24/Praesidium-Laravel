@@ -50,7 +50,7 @@ php artisan vendor:publish --tag=migrations
 php artisan migrate 
 ```
 
-* **5 - Extender las funciones necesarias en el modelo User** 
+* **5 - Extender las funciones necesarias en el modelo User** \n
 _Para esto tendremos que añadir dos cosas al modelo User que en la version 8 de laravel se encuentra en App\Models\User_
 ```php
 namespace App\Models;
