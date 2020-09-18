@@ -23,7 +23,7 @@
         },
 
         "classmap": [
-            "database/seeders"
+            "src/database/seeders"
         ]
     },
     
