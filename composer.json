@@ -20,7 +20,11 @@
     "autoload": {
         "psr-4": {
             "UNK\\Praesidium\\": "src/"
-        }
+        },
+
+        "classmap": [
+            "database/seeders"
+        ]
     },
     
     "extra": {
