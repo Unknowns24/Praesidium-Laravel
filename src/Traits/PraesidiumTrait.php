@@ -36,4 +36,22 @@ trait PraesidiumTrait
             return false;
         }
     }
+
+    public function haveRole($role)
+    {
+        if (Auth::guard()->check())
+        {
+            foreach($this->roles as $UserRole)
+            {
+                if ($UserRole->slug == $role)
+                {
+                    return true;
+                }
+            }   
+            
+            return false;
+        }
+
+        return false;
+    }
 }

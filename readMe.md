@@ -12,23 +12,35 @@ _Este es un paquete de roles y permisos diseñado para laravel 8_
 ### Instalacion
 
 * **1 - Instalar Paquete** 
-``` composer requier unk/praesidium ```
+``` 
+composer requier unk/praesidium 
+```
 
 * **2 - Publicar el archivo de configuraciones**
-```php artisan vendor:publish --tag=config```
+``` 
+php artisan vendor:publish --tag=config 
+```
 
 * **3 - Publicar el archivo de Migraciones**
-```php artisan vendor:publish --tag=migrations```
+``` 
+php artisan vendor:publish --tag=migrations 
+```
 
 * **4 - Publicar el archivo de Seeders**
-```php artisan vendor:publish --tag=seeds```
+``` 
+php artisan vendor:publish --tag=seeds 
+```
 
 * **5 - Subir las migraciones a la base de datos**
-```php artisan migrate```
+``` 
+php artisan migrate 
+```
 
 
-* **6 - Subir la seed a la base de datos**
-```php artisan db:seed --class=UNK\\Praesidium\\Database\\Seeders\\PraesidiumSeeder```
+* **6 - Subir la seed a la base de datos** 
+``` 
+php artisan db:seed --class=UNK\\Praesidium\\Database\\Seeders\\PraesidiumSeeder 
+```
 
 
 ### Autor
