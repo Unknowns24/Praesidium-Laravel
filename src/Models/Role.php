@@ -20,7 +20,9 @@ class Role extends Model
 
     public function users() : BelongsToMany
     {
-        return $this->belongsToMany('App\User')->withTimestamps();
+        $UserModelLocation = config('praesidium.location.Models.user');
+
+        return $this->belongsToMany("$UserModelLocation")->withTimestamps();
     }
 
     public function permissions() : BelongsToMany 
