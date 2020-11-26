@@ -42,12 +42,7 @@ trait PraesidiumTrait
         if (Auth::guard()->check())
         {
             foreach($this->roles as $UserRole)
-            {
-                if($UserRole['full-access'] == "yes")
-                {
-                    return true;
-                }
-                
+            {    
                 if ($UserRole->slug == $role)
                 {
                     return true;
