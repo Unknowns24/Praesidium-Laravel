@@ -69,9 +69,9 @@ class PraesidiumSeeder extends Seeder
         ]);
 
         Role::create([
-            'name' => 'Guest',
-            'slug' => 'guest',
-            'description' => 'Give the access to the panel',
+            'name' => 'User',
+            'slug' => 'user',
+            'description' => 'User permission auto-created',
             'full-access' => 'no'
         ]);
 
