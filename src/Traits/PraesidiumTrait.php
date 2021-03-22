@@ -2,13 +2,22 @@
 
 namespace UNK\Praesidium\Traits;
 
+use UNK\Praesidium\Models\Role;
 use Illuminate\Support\Facades\Auth;
+use UNK\Praesidium\Models\Permission;
 
 trait PraesidiumTrait 
 {
     public function roles()
     {
-        return $this->belongsToMany('UNK\Praesidium\Models\Role')->withTimestamps();
+        $userRoleTableNameConfig = config('praesidium.tables.role_user');
+        return $this->belongsToMany(Role::class, $userRoleTableNameConfig)->withTimestamps();
+    }
+
+    public function permissions()
+    {
+        $userPermissionsTableNameConfig = config('praesidium.tables.permission_user');
+        return $this->belongsToMany(Permission::class, $userPermissionsTableNameConfig)->withTimestamps();
     }
     
     function havePermission($permission)
@@ -26,6 +35,13 @@ trait PraesidiumTrait
                     {
                         return  true;
                     }
+                }
+            }
+
+            foreach ($this->permissions as $perm) {
+                if($perm->slug == $permission)
+                {
+                    return  true;
                 }
             }
 

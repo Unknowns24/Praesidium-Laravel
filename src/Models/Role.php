@@ -2,6 +2,8 @@
 
 namespace UNK\Praesidium\Models;
 
+use App\Models\User;
+use UNK\Praesidium\Models\Permission;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -20,13 +22,13 @@ class Role extends Model
 
     public function users() : BelongsToMany
     {
-        $UserModelLocation = config('praesidium.location.Models.user');
-
-        return $this->belongsToMany("$UserModelLocation")->withTimestamps();
+        $roleUserTableNameConfig = config('praesidium.tables.role_user');
+        return $this->belongsToMany(User::class, "$roleUserTableNameConfig", 'role_id', 'user_id')->withTimestamps();
     }
 
     public function permissions() : BelongsToMany 
     {
-        return $this->belongsToMany('UNK\Praesidium\Models\Permission')->withTimestamps();
+        $rolePermissionTableNameConfig = config('praesidium.tables.permission_role');
+        return $this->belongsToMany(Permission::class, "$rolePermissionTableNameConfig", 'role_id', 'permission_id')->withTimestamps();
     }
 }

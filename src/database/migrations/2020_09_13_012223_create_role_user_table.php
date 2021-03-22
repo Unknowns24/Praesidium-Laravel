@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RoleUser extends Migration
+class CreateRoleUserTable extends Migration
 {
     public function up()
     {

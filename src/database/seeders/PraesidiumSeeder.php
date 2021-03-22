@@ -22,10 +22,11 @@ class PraesidiumSeeder extends Seeder
         // Truncate Tables //
         /////////////////////
         DB::statement("SET foreign_key_checks=0");
-            DB::table('roles')->truncate();
-            DB::table('role_user')->truncate();
-            DB::table('permission_role')->truncate();
-            DB::table('permissions')->truncate();
+            DB::table(config('praesidium.tables.roles'))->truncate();
+            DB::table(config('praesidium.tables.role_user'))->truncate();
+            DB::table(config('praesidium.tables.permission_role'))->truncate();
+            DB::table(config('praesidium.tables.permission_user'))->truncate();
+            DB::table(config('praesidium.tables.permissions'))->truncate();
         DB::statement("SET foreign_key_checks=1");
 
 
@@ -64,14 +65,14 @@ class PraesidiumSeeder extends Seeder
         $rootRole = Role::create([
             'name' => 'Root',
             'slug' => 'root',
-            'description' => 'Root permission auto-created',
+            'description' => 'Root role auto-created',
             'full-access' => 'yes'
         ]);
 
         Role::create([
             'name' => 'User',
             'slug' => 'user',
-            'description' => 'User permission auto-created',
+            'description' => 'User role auto-created',
             'full-access' => 'no'
         ]);
 
@@ -91,146 +92,6 @@ class PraesidiumSeeder extends Seeder
             'name' => 'Panel Access',
             'slug' => 'panel.index',
             'description' => 'Give the access to the panel'
-        ]);
-
-        Permission::create([
-            'name' => 'See Roles',
-            'slug' => 'roles.index',
-            'description' => 'Give the access to see the roles in the server'
-        ]);
-
-        Permission::create([
-            'name' => 'Create roles',
-            'slug' => 'roles.create',
-            'description' => 'Give the access to create roles'
-        ]);
-
-        Permission::create([
-            'name' => 'Edit roles',
-            'slug' => 'roles.edit',
-            'description' => 'Give the access to Edit roles'
-        ]);
-
-        Permission::create([
-            'name' => 'Delete roles',
-            'slug' => 'roles.destroy',
-            'description' => 'Give the access to delete roles'
-        ]);
-
-        /* APPS PERMISSIONS */
-
-        Permission::create([
-            'name' => 'See Apps',
-            'slug' => 'apps.index',
-            'description' => 'Give the access to see the applications created'
-        ]);
-
-        Permission::create([
-            'name' => 'Create Apps',
-            'slug' => 'apps.create',
-            'description' => 'Give the access to create apps'
-        ]);
-
-        Permission::create([
-            'name' => 'Edit Apps',
-            'slug' => 'apps.edit',
-            'description' => 'Give the access to edit the apps'
-
-        ]);
-
-        Permission::create([
-            'name' => 'Delete Apps',
-            'slug' => 'apps.destroy',
-            'description' => 'Give the access to delete apps'
-        ]);
-        
-        /* LICENSES PERMISSIONS */
-
-        Permission::create([
-            'name' => 'See licenses',
-            'slug' => 'licenses.index',
-            'description' => 'Give the access see the licenses created'
-            ]);
-            
-        Permission::create([
-            'name' => 'Create licenses',
-            'slug' => 'licenses.create',
-            'description' => 'Give the access to create new licenses'
-        ]);
-
-
-        Permission::create([
-            'name' => 'Edit licenses',
-            'slug' => 'licenses.edit',
-            'description' => 'Give the access to the panel'
-        ]);
-
-        Permission::create([
-            'name' => 'Switch Licenses',
-            'slug' => 'licenses.switch',
-            'description' => 'Give the access to enable/disable licenses'
-        ]);
-
-        Permission::create([
-            'name' => 'Delete Liceses',
-            'slug' => 'licenses.destroy',
-            'description' => 'Give the access to delete licenses'
-        ]);
-
-        /* REPORTS PERMISSIONS */
-
-        Permission::create([
-            'name' => 'List reports',
-            'slug' => 'reports.index',
-            'description' => 'Give the access to list the reports'
-
-        ]);
-
-        Permission::create([
-            'name' => 'Mark reports',
-            'slug' => 'reports.switch',
-            'description' => 'Give the access to mark reports how saw it'
-        ]);
-
-        Permission::create([
-            'name' => 'Answer reports',
-            'slug' => 'reports.answer',
-            'description' => 'Give the access to answer the reports'
-
-        ]);
-
-        /* USERS PERMISSIONS */
-
-        Permission::create([
-            'name' => 'List users',
-            'slug' => 'users.index',
-            'description' => 'Give the access to list users'
-        ]);
-
-
-        Permission::create([
-            'name' => 'Create users',
-            'slug' => 'users.create',
-            'description' => 'Give the access to create users'
-        ]);
-
-        Permission::create([
-            'name' => 'Edit users',
-            'slug' => 'users.edit',
-            'description' => 'Give the access to edit users'
-        ]);
-
-        Permission::create([
-            'name' => 'Ban Users',
-            'slug' => 'users.ban',
-            'description' => 'Give the access to ban users'
-        ]);
-
-        Permission::create([
-            'name' => 'Delete Users',
-            'slug' => 'users.destroy',
-            'description' => 'Give the access to delete users'
-
         ]);
     }
 }

@@ -22,9 +22,10 @@ return [
 
     'tables' => [
         'roles' => 'roles',
-        'role_user' => 'role_user',
         'permissions' => 'permissions',
-        'permission_role' => 'permission_role',
+        'permission_role' => 'role_permissions',
+        'permission_user' => 'user_permissions',
+        'role_user' => 'user_roles',
     ],
 
     /*
