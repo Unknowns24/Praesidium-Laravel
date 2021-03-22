@@ -22,52 +22,40 @@ trait PraesidiumTrait
     
     function havePermission($permission)
     {
-        if (Auth::guard()->check())
-        {
-            foreach ($this->roles as $role) {
-                if($role['full-access'] == "yes")
-                {
-                    return true;
-                }
-
-                foreach ($role->permissions as $perm) {
-                    if($perm->slug == $permission)
-                    {
-                        return  true;
-                    }
-                }
+        foreach ($this->roles as $role) {
+            if($role['full-access'] == "yes")
+            {
+                return true;
             }
 
-            foreach ($this->permissions as $perm) {
+            foreach ($role->permissions as $perm) {
                 if($perm->slug == $permission)
                 {
                     return  true;
                 }
             }
+        }
 
-            return false;
+        foreach ($this->permissions as $perm) {
+            if($perm->slug == $permission)
+            {
+                return  true;
+            }
         }
-        else
-        {
-            return false;
-        }
+
+        return false;
     }
 
     public function haveRole($role)
     {
-        if (Auth::guard()->check())
-        {
-            foreach($this->roles as $UserRole)
-            {    
-                if ($UserRole->slug == $role)
-                {
-                    return true;
-                }
-            }   
-            
-            return false;
-        }
-
+        foreach($this->roles as $UserRole)
+        {    
+            if ($UserRole->slug == $role)
+            {
+                return true;
+            }
+        }   
+        
         return false;
     }
 }
